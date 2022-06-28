@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Mentalista</title>
+</head>
+<body>
+    <section class="container">
+        <h1 class="page-title">Mentalista</h1>
+        <section class="selection">
+            <div class="difficult-selection">
+                <p class="page-subtitle">Dificuldade</p>
+                <button class="difficult-button" onclick="Difficult(this.value)" value="1" id="difficult-button1">Fácil</button>
+                <button class="difficult-button" onclick="Difficult(this.value)" value="2" id="difficult-button2">Médio</button>
+                <button class="difficult-button" onclick="Difficult(this.value)" value="3" id="difficult-button3">Difícil</button>
+            </div>
+            <div class="try-selection">
+                <p class="page-subtitle">Tentativas</p>
+                <button class="try-button" onclick="Try(this.value)" value="3" id="try-button1">3</button>
+                <button class="try-button" onclick="Try(this.value)" value="6" id="try-button2">6</button>
+                <button class="try-button" onclick="Try(this.value)" value="9" id="try-button3">9</button>
+            </div>
+        </section><br>
+        <p class="page-subtitle" id="number">Digite um número de 0 a 10</p>
+        <p class="page-subtitle" id="try">Você tem 3 tentativas</p>
+        <input class="input-value" type="number" id="value"/><br>
+        <button class="submit-button" type="submit" onclick="Guess()">Chutar</button>
+        <h2 class="result-text" id="result"></h2>
+        <h3 class="tip-text" id="tip"></h3>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

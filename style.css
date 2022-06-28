@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: "Roboto", sans-serif;
+    color: #fff;
+    -webkit-text-stroke-color: #000;
+    background-image: url(img/strange-things.jpg);
+    background-color: #000;
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+
+.container {
+    text-align: center;
+    height: 100vh;
+}
+
+.page-title {
+    color: #DC211E;
+    -webkit-text-stroke-width: 0.1rem;
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
+
+.selection {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.page-subtitle {
+    -webkit-text-stroke-width: 0.03rem;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.page-logo {
+    width: 200px;
+}
+
+.input-value {
+    font-family: "Roboto", sans-serif;
+    border-radius: 0.2rem;
+    margin-bottom: 1rem;
+    width: 6rem;
+}
+
+.difficult-button {
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    color: #fff;
+    border-radius: 0.2rem;
+    background-color: #DC211E;
+    border: solid 0.15rem #000;
+}
+
+.difficult-button:hover {
+    cursor: pointer;
+    background-color: #9c1614;
+}
+
+.difficult-button:disabled {
+    cursor: default;
+    opacity: 0.6;
+    background-color: #DC211E;
+}
+
+.try-button {
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    color: #fff;
+    border-radius: 0.2rem;
+    background-color: #122B46;
+    border: solid 0.15rem #000;
+    padding: 0 1rem;
+}
+
+.try-button:hover {
+    cursor: pointer;
+    background-color: #0c1e31;
+}
+
+.try-button:disabled {
+    cursor: default;
+    opacity: 0.6;
+    background-color: #122B46;
+}
+
+.submit-button {
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    border-radius: 0.2rem;
+}
+
+.submit-button:hover {
+    cursor: pointer;
+}
+
+.result-text {
+    -webkit-text-stroke-color: #000;
+    -webkit-text-stroke-width: 0.06rem;
+    margin-top: 1rem;
+}
+
+.tip-text {
+    -webkit-text-stroke-color: #000;
+    -webkit-text-stroke-width: 0.03rem;
+    color: #E29C4D;
+    margin-top: 1rem;
+}
