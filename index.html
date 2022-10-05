@@ -13,24 +13,24 @@
         <div class="selection">
             <div class="difficulty-selection">
                 <p class="page-subtitle">Dificuldade</p>
-                <button class="difficulty-button" onclick="compareDifficulty(this)" value="1" id="easy">Fácil</button>
-                <button class="difficulty-button" onclick="compareDifficulty(this)" value="2" id="medium">Médio</button>
-                <button class="difficulty-button" onclick="compareDifficulty(this)" value="3" id="hard">Difícil</button>
+                <button class="difficulty-button" value="1" id="easy">Fácil</button>
+                <button class="difficulty-button" value="2" id="medium">Médio</button>
+                <button class="difficulty-button" value="3" id="hard">Difícil</button>
             </div>
             <div class="try-selection">
                 <p class="page-subtitle">Tentativas</p>
-                <button class="try-button" onclick="assignTrys(this)" value="3" id="try-3">3</button>
-                <button class="try-button" onclick="assignTrys(this)" value="6" id="try-6">6</button>
-                <button class="try-button" onclick="assignTrys(this)" value="9" id="try-9">9</button>
+                <button class="try-button" value="3" id="try-3">3</button>
+                <button class="try-button" value="6" id="try-6">6</button>
+                <button class="try-button" value="9" id="try-9">9</button>
             </div>
         </div>
         <p class="page-subtitle" id="txt-number">Digite um número de 1 a 10</p>
         <p class="page-subtitle" id="txt-try">Você tem 3 tentativas</p>
         <input class="input-value" type="number" id="input-number"/>
-        <button class="submit-button" onclick="guess()">Chutar</button>
+        <button class="submit-button" id="guess">Chutar</button>
         <h2 class="result-text" id="txt-result"></h2>
         <h3 class="tip-text" id="txt-tip"></h3>
     </main>
-    <script src="script.js"></script>
+    <script src="script.js" defer="true"></script>
 </body>
 </html>

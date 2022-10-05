@@ -1,4 +1,6 @@
 const input = document.getElementById("input-number");
+const btnGuess = document.getElementById("guess");
+btnGuess.addEventListener("click", guess, false);
 
 const txtNumber = document.getElementById("txt-number");
 const txtResult = document.getElementById("txt-result");
@@ -8,10 +10,16 @@ const txtTry = document.getElementById("txt-try");
 const btnEasy = document.getElementById("easy");
 const btnMedium = document.getElementById("medium");
 const btnHard = document.getElementById("hard");
+btnEasy.addEventListener("click", () => {compareDifficulty(btnEasy)}, false);
+btnMedium.addEventListener("click", () => {compareDifficulty(btnMedium)}, false);
+btnHard.addEventListener("click", () => {compareDifficulty(btnHard)}, false);
 
 const btnTry3 = document.getElementById("try-3");
 const btnTry6 = document.getElementById("try-6");
 const btnTry9 = document.getElementById("try-9");
+btnTry3.addEventListener("click", () => {assignTrys(btnTry3)}, false);
+btnTry6.addEventListener("click", () => {assignTrys(btnTry6)}, false);
+btnTry9.addEventListener("click", () => {assignTrys(btnTry9)}, false);
 
 btnTry3.disabled = true;
 btnEasy.disabled = true;
