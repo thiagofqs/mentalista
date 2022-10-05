@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-body {
+* {
     font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
     color: #fff;
     -webkit-text-stroke-color: #000;
     background-image: url(img/strange-things.jpg);
@@ -11,7 +15,7 @@ body {
     background-repeat: no-repeat;
 }
 
-.container {
+.main {
     text-align: center;
     height: 100vh;
 }
@@ -40,14 +44,13 @@ body {
 }
 
 .input-value {
-    font-family: "Roboto", sans-serif;
+    border: none;
     border-radius: 0.2rem;
     margin-bottom: 1rem;
     width: 6rem;
 }
 
-.difficult-button {
-    font-family: "Roboto", sans-serif;
+.difficulty-button {
     font-size: 1rem;
     color: #fff;
     border-radius: 0.2rem;
@@ -55,19 +58,18 @@ body {
     border: solid 0.15rem #000;
 }
 
-.difficult-button:hover {
+.difficulty-button:hover {
     cursor: pointer;
     background-color: #9c1614;
 }
 
-.difficult-button:disabled {
+.difficulty-button:disabled {
     cursor: default;
     opacity: 0.6;
     background-color: #DC211E;
 }
 
 .try-button {
-    font-family: "Roboto", sans-serif;
     font-size: 1rem;
     color: #fff;
     border-radius: 0.2rem;
@@ -88,13 +90,13 @@ body {
 }
 
 .submit-button {
-    font-family: "Roboto", sans-serif;
     font-size: 1rem;
     border-radius: 0.2rem;
 }
 
 .submit-button:hover {
     cursor: pointer;
+    opacity: .8;
 }
 
 .result-text {

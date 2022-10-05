@@ -1,132 +1,143 @@
-const trys = document.getElementById("try");
-document.getElementById(`difficult-button1`).disabled = true;
-document.getElementById(`try-button1`).disabled = true;
+const input = document.getElementById("input-number");
 
-let secretNumber = parseInt(Math.random() * 11);
-let tryTimes = 3;
-let tryTimesCopy = 3;
-let difficult = 1;
+const txtNumber = document.getElementById("txt-number");
+const txtResult = document.getElementById("txt-result");
+const txtTip = document.getElementById("txt-tip");
+const txtTry = document.getElementById("txt-try");
 
-let randomNumber = true;
+const btnEasy = document.getElementById("easy");
+const btnMedium = document.getElementById("medium");
+const btnHard = document.getElementById("hard");
 
-function numberText() {
-    if(difficult === 1) {
-        return "10";
-    } else if(difficult === 2) {
-        return "50";
-    } else if(difficult === 3) {
-        return "100";
-    };
+const btnTry3 = document.getElementById("try-3");
+const btnTry6 = document.getElementById("try-6");
+const btnTry9 = document.getElementById("try-9");
+
+btnTry3.disabled = true;
+btnEasy.disabled = true;
+
+let secretNumber;
+let trys = 3;
+let difficulty = 1;
+let gameStarted = false;
+let elementsAux = [btnEasy, btnTry3];
+
+function drawNumber() {
+    maxNumber = assignMaxNumber();
+    secretNumber = Math.floor(Math.random() * (maxNumber+1));
 };
 
-function enableOrDisableButtons(value, qtd) {
-    if(qtd === 1) {
-        for(let i = 1; i <= 3; i++) {
-            let difficultButton = document.getElementById(`difficult-button${i}`);
-            difficultButton.disabled = value;
-        };
-    } else if(qtd === 2) {
-        for(let i = 1; i <= 3; i++) {
-            let tryButton = document.getElementById(`try-button${i}`);
-            tryButton.disabled = value;
-        };
-    } else if(qtd === 3) {
-        for(let i = 1; i <= 3; i++) {
-            let difficultButton = document.getElementById(`difficult-button${i}`);
-            difficultButton.disabled = value;
-        };
-        for(let i = 1; i <= 3; i++) {
-            let tryButton = document.getElementById(`try-button${i}`);
-            tryButton.disabled = value;
-        };
+function assignMaxNumber() {
+    if(difficulty === 1) { //easy
+        return 10;
+    } else if(difficulty === 2) { //medium
+        return 50;
+    } else if(difficulty === 3) { //hard
+        return 100;
     };
-};
+}
 
-function Difficult(value) {
-    value = parseInt(value);
-    enableOrDisableButtons(true, 1);
-    const number = document.getElementById("number");
-    if(value === 1) {
-        difficult = 1;
-        secretNumber = parseInt(Math.random() * 11);
-        number.innerHTML = "Digite um número de 0 a 10";
-    } else if(value === 2) {
-        difficult = 2;
-        secretNumber = parseInt(Math.random() * 51);
-        number.innerHTML = "Digite um número de 0 a 50";
-    } else if(value === 3) {
-        difficult = 3;
-        secretNumber = parseInt(Math.random() * 101);
-        number.innerHTML = "Digite um número de 0 a 100";
-    };
-    randomNumber = true;
-};
-
-function Try(value) {
-    value = parseInt(value);
-    enableOrDisableButtons(true, 2);
-    if(value === 3) {
-        tryTimes = 3;
-        tryTimesCopy = 3;
-        trys.innerHTML = "Você tem 3 tentativas";
-    } else if(value === 6) {
-        tryTimes = 6;
-        tryTimesCopy = 6;
-        trys.innerHTML = "Você tem 6 tentativas";
-    } else if(value === 9) {
-        tryTimes = 9;
-        tryTimesCopy = 9;
-        trys.innerHTML = "Você tem 9 tentativas";
-    };
-    document.getElementById("submit-button").disabled = false;
-};
-
-function Guess() {
-    const result = document.getElementById("result");
-    const tip = document.getElementById("tip");
-    let number = document.getElementById("value").value;
-    if(randomNumber === false) {
-        randomNumber = parseInt(Math.random() * Difficult(difficult));
-        tryTimes = Try(tryTimesCopy);
-    };
-    if(number === "") {
-        result.innerHTML = `Você deve digitar um número de 0 a ${numberText()}.`;
+function assignTrys(element) {
+    if(gameStarted === false) {
+        const value = parseInt(element.value);
+        if(value === 3) {
+            trys = 3;
+            txtTry.innerHTML = "Você tem 3 tentativas";
+        } else if(value === 6) {
+            trys = 6;
+            txtTry.innerHTML = "Você tem 6 tentativas";
+        } else if(value === 9) {
+            trys = 9;
+            txtTry.innerHTML = "Você tem 9 tentativas";
+        };
+        enableOrDisableButton(element, "try");
     } else {
-        number = parseInt(number);
-        if(document.getElementById(`difficult-button2`).disabled === false || document.getElementById(`try-button2`).disabled === false) {
-            enableOrDisableButtons(true, 3);
+        txtResult.innerHTML = "Você só pode mudar as tentativas quando perder ou ganhar essa partida!";
+    };
+};
+
+function compareDifficulty(element) {
+    if(gameStarted === false) {
+        const value = parseInt(element.value);
+        if(value === 1) { //easy
+            difficulty = 1;
+            txtNumber.innerHTML = "Digite um número de 1 a 10";
+            drawNumber();
+        } else if(value === 2) { //medium
+            difficulty = 2;
+            txtNumber.innerHTML = "Digite um número de 1 a 50";
+            drawNumber();
+        } else if(value === 3) { //hard
+            difficulty = 3;
+            txtNumber.innerHTML = "Digite um número de 1 a 100";
+            drawNumber();
         };
+        enableOrDisableButton(element, "dif");
+    } else {
+        txtResult.innerHTML = "Você só pode mudar a dificuldade quando perder ou ganhar essa partida!";
+    };
+};
+
+function enableOrDisableButton(element, button) {
+    if(button === "dif") {
+        elementsAux[0].disabled = false;
+        elementsAux[0] = element;
+    } else if(button === "try") {
+        elementsAux[1].disabled = false;
+        elementsAux[1] = element;
+    };
+    element.disabled = true;
+};
+
+function returnMaxNumberOfDifficulty() {
+    if(difficulty === 1) { //easy
+        return 10;
+    } else if(difficulty === 2) { //normal
+        return 50;
+    } else if(difficulty === 3) { //hard
+        return 100;
+    };
+};
+
+function guess() {
+    let number = input.value;
+    const maxNumber = returnMaxNumberOfDifficulty();
+    if(number === "") {
+        txtResult.innerHTML = `Você deve digitar um número de 1 a ${maxNumber}.`;
+    } else {
+        gameStarted = true;
+        number = parseInt(number);
         if(number === secretNumber) {
-            enableOrDisableButtons(false, 3);
-            document.getElementById("value").value = "";
-            trys.innerHTML = `Você é um ótimo mentalista!`;
-            result.innerHTML = `Você acertou o número secreto! O número secreto era ${secretNumber}.`;
-            tip.innerHTML = "";
-            randomNumber = false;
-        } else if(number > numberText() || number < 0) {
-            result.innerHTML = `Você deve digitar um número de 0 a ${numberText()}.`;
+            input.value = "";
+            txtTry.innerHTML = "Você é um ótimo mentalista!";
+            txtResult.innerHTML = `Você acertou o número secreto! O número secreto era ${secretNumber}.`;
+            txtTip.innerHTML = "";
+            gameStarted = false;
+        } else if(number > maxNumber || number < 1) {
+            txtResult.innerHTML = `Você deve digitar um número de 1 a ${maxNumber}.`;
         } else {
-            tryTimes -= 1;
-            if (tryTimes === 0) {
-                enableOrDisableButtons(false, 3);
-                document.getElementById("value").value = "";
-                trys.innerHTML = `Você tem 0 tentativas!`;
-                result.innerHTML = `Suas tentativas acabaram! O número secreto era ${secretNumber}.`;
-                tip.innerHTML = "";
-                randomNumber = false;
+            trys -= 1;
+            if(trys <= 0) {
+                input.value = "";
+                txtTry.innerHTML = `Você tem 0 tentativas!`;
+                txtResult.innerHTML = `Suas tentativas acabaram! O número secreto era ${secretNumber}.`;
+                txtTip.innerHTML = "";
+                gameStarted = false;
             } else {
-                if (number > secretNumber) {
-                    document.getElementById("value").value = "";
-                    trys.innerHTML = `Você tem ${tryTimes} tentativas!`;
-                    result.innerHTML = `Você errou! Agora você tem ${tryTimes} tentativas!`;
-                    tip.innerHTML = `O número secreto é menor que ${number}.`;
-                } else if (number < secretNumber) {
-                    document.getElementById("value").value = "";
-                    trys.innerHTML = `Você tem ${tryTimes} tentativas!`;
-                    result.innerHTML = `Você errou! Agora você tem ${tryTimes} tentativas!`;
-                    tip.innerHTML = `O número secreto é maior que ${number}.`;
+                if(number > secretNumber) {
+                    input.value = "";
+                    txtTry.innerHTML = `Você tem ${trys} tentativas!`;
+                    txtResult.innerHTML = `Você errou! Agora você tem ${trys} tentativas!`;
+                    txtTip.innerHTML = `O número secreto é menor que ${number}.`;
+                } else if(number < secretNumber) {
+                    input.value = "";
+                    txtTry.innerHTML = `Você tem ${trys} tentativas!`;
+                    txtResult.innerHTML = `Você errou! Agora você tem ${trys} tentativas!`;
+                    txtTip.innerHTML = `O número secreto é maior que ${number}.`;
                 };
             };
         };
     };
 };
+
+drawNumber();
