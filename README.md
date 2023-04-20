@@ -2,7 +2,7 @@
 
 [![MIT License][license-shield]][license-url]
 
-Versão feita com base no projeto Mentalista feito na ImersãoDev Alura de 2021.
+Esse projeto é uma versão baseada no Mentalista, realizado na ImersãoDev Alura de 2021.
 
 ## 📝 Licença
 
