@@ -8,7 +8,7 @@ Esse projeto é uma versão baseada no Mentalista, realizado na ImersãoDev Alur
 
 Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE) para mais detalhes.
 
-[⬆ Voltar ao topo](#)<br>
+[⬆ Voltar ao topo](#)
 
 <!-- BADGE LINKS & IMAGES -->
 [license-shield]: https://img.shields.io/github/license/thiagofqs/mentalista.svg?style=for-the-badge

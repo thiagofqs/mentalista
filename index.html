@@ -1,36 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/style.css">
-    <title>Mentalista</title>
-</head>
-<body>
-    <main class="main">
-        <h1 class="page-title">Mentalista</h1>
-        <div class="selection">
-            <div class="difficulty-selection">
-                <p class="page-subtitle">Dificuldade</p>
-                <button class="difficulty-button" value="1" id="easy">Fácil</button>
-                <button class="difficulty-button" value="2" id="medium">Médio</button>
-                <button class="difficulty-button" value="3" id="hard">Difícil</button>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="assets/style.css" />
+        <title>Mentalista</title>
+    </head>
+    <body>
+        <main class="main">
+            <h1 class="main-titulo">Mentalista</h1>
+            <div class="selecao">
+                <div class="selecao-conteudo">
+                    <p class="selecao-conteudo-titulo">Dificuldade</p>
+                    <button class="selecao-conteudo-dificuldade" value="1" id="easy">
+                        Fácil
+                    </button>
+                    <button class="selecao-conteudo-dificuldade" value="2" id="medium">
+                        Médio
+                    </button>
+                    <button class="selecao-conteudo-dificuldade" value="3" id="hard">
+                        Difícil
+                    </button>
+                </div>
+                <div class="selecao-conteudo">
+                    <p class="selecao-conteudo-titulo">Tentativas</p>
+                    <button class="selecao-conteudo-tentativas" value="3" id="try-3">3</button>
+                    <button class="selecao-conteudo-tentativas" value="6" id="try-6">6</button>
+                    <button class="selecao-conteudo-tentativas" value="9" id="try-9">9</button>
+                </div>
             </div>
-            <div class="try-selection">
-                <p class="page-subtitle">Tentativas</p>
-                <button class="try-button" value="3" id="try-3">3</button>
-                <button class="try-button" value="6" id="try-6">6</button>
-                <button class="try-button" value="9" id="try-9">9</button>
-            </div>
-        </div>
-        <p class="page-subtitle" id="txt-number">Digite um número de 1 a 10</p>
-        <p class="page-subtitle" id="txt-try">Você tem 3 tentativas</p>
-        <input class="input-value" type="number" id="input-number"/>
-        <button class="submit-button" id="guess">Chutar</button>
-        <h2 class="result-text" id="txt-result"></h2>
-        <h3 class="tip-text" id="txt-tip"></h3>
-    </main>
-    <script src="assets/script.js" defer="true"></script>
-</body>
+            <p class="main-entre" id="txt-number">
+                Digite um número de 1 a 10
+            </p>
+            <p class="main-tentativas" id="txt-try">Você tem 3 tentativas!</p>
+            <input class="main-input_tentativa" type="number" id="input-number" placeholder="Digite um número" />
+            <button class="main-chutar" id="guess">Chutar</button>
+            <p class="main-resultado" id="txt-result"></p>
+            <p class="main-dica" id="txt-tip"></p>
+        </main>
+        <script src="assets/script.js" type="module"></script>
+    </body>
 </html>
