@@ -59,13 +59,6 @@ body {
     font-weight: 500;
 }
 
-.main-input_tentativa {
-    border: none;
-    border-radius: 0.2rem;
-    margin-bottom: 10px;
-    width: 6rem;
-}
-
 .selecao-conteudo-dificuldade {
     cursor: pointer;
     font-size: 1rem;
@@ -73,7 +66,7 @@ body {
     border-radius: 5px;
     background-color: var(--penn-red);
     border: 1px solid var(--black);
-    padding: 0 10px;
+    padding: 0 20px;
     transition: 0.4s;
 }
 
@@ -98,7 +91,7 @@ body {
     border-radius: 5px;
     background-color: var(--cerulean);
     border: 1px solid var(--black);
-    padding: 0 10px;
+    padding: 0 20px;
     transition: 0.4s;
 }
 
@@ -107,8 +100,9 @@ body {
 }
 
 .main-input_tentativa {
+    border-radius: 5px;
     margin: 10px 0;
-    width: 140px;
+    width: 15%;
     padding: 5px;
     border: 1px solid var(--black);
 }
@@ -118,9 +112,10 @@ body {
     font-size: 1rem;
     border-radius: 5px;
     border: 1px solid var(--black);
-    padding: 5px 20px;
+    padding: 10px 30px;
     background-color: var(--dark-purple);
     transition: 0.4s;
+    font-weight: 700;
     color: var(--white)
 }
 
