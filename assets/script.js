@@ -38,13 +38,13 @@ function drawNumber() {
 
 function assignMaxNumber() {
     if (difficulty === 1) {
-        //easy
+        // easy
         return 10;
     } else if (difficulty === 2) {
-        //medium
+        // medium
         return 50;
     } else if (difficulty === 3) {
-        //hard
+        // hard
         return 100;
     }
 }
@@ -54,17 +54,17 @@ function assignTrys(el) {
         const value = parseInt(el.value, 10);
         if (value === 3) {
             trys = 3;
-            txtTrys.innerHTML = "Você tem 3 tentativas!";
+            txtTrys.textContent = "Você tem 3 tentativas!";
         } else if (value === 6) {
             trys = 6;
-            txtTrys.innerHTML = "Você tem 6 tentativas!";
+            txtTrys.textContent = "Você tem 6 tentativas!";
         } else if (value === 9) {
             trys = 9;
-            txtTrys.innerHTML = "Você tem 9 tentativas!";
+            txtTrys.textContent = "Você tem 9 tentativas!";
         }
         enableOrDisableButton(el, "try");
     } else {
-        txtResult.innerHTML =
+        txtResult.textContent =
             "Você só pode mudar as tentativas quando perder ou ganhar essa partida!";
     }
 }
@@ -75,22 +75,22 @@ function compareDifficulty(el) {
         if (value === 1) {
             //easy
             difficulty = 1;
-            txtNumbersMode.innerHTML = "Digite um número de 1 a 10";
+            txtNumbersMode.textContent = "Digite um número de 1 a 10";
             drawNumber();
         } else if (value === 2) {
             //medium
             difficulty = 2;
-            txtNumbersMode.innerHTML = "Digite um número de 1 a 50";
+            txtNumbersMode.textContent = "Digite um número de 1 a 50";
             drawNumber();
         } else if (value === 3) {
             //hard
             difficulty = 3;
-            txtNumbersMode.innerHTML = "Digite um número de 1 a 100";
+            txtNumbersMode.textContent = "Digite um número de 1 a 100";
             drawNumber();
         }
         enableOrDisableButton(el, "dif");
     } else {
-        txtResult.innerHTML =
+        txtResult.textContent =
             "Você só pode mudar a dificuldade quando perder ou ganhar essa partida!";
     }
 }
@@ -108,13 +108,13 @@ function enableOrDisableButton(el, type) {
 
 function returnMaxNumberOfDifficulty() {
     if (difficulty === 1) {
-        //easy
+        // easy
         return 10;
     } else if (difficulty === 2) {
-        //normal
+        // medium
         return 50;
     } else if (difficulty === 3) {
-        //hard
+        // hard
         return 100;
     }
 }
@@ -123,15 +123,15 @@ function guess() {
     let number = input.value;
     const maxNumber = returnMaxNumberOfDifficulty();
     if (number === "") {
-        txtResult.innerHTML = `Você deve digitar um número de 1 a ${maxNumber}.`;
+        txtResult.textContent = `Você deve digitar um número de 1 a ${maxNumber}.`;
     } else {
         gameStarted = true;
         number = parseInt(number, 10);
         if (number === secretNumber) {
             input.value = "";
-            txtTrys.innerHTML = "Você é um ótimo mentalista!";
-            txtResult.innerHTML = `Você acertou o número secreto! O número secreto era ${secretNumber}.`;
-            txtTip.innerHTML = "";
+            txtTrys.textContent = "Você é um ótimo mentalista!";
+            txtResult.textContent = `Você acertou o número secreto! O número secreto era ${secretNumber}.`;
+            txtTip.textContent = "";
             gameStarted = false;
         } else if (number > maxNumber || number < 1) {
             txtResult.innerHTML = `Você deve digitar um número de 1 a ${maxNumber}.`;
@@ -139,21 +139,21 @@ function guess() {
             trys -= 1;
             if (trys <= 0) {
                 input.value = "";
-                txtTrys.innerHTML = `Você tem 0 tentativas!`;
-                txtResult.innerHTML = `Suas tentativas acabaram! O número secreto era ${secretNumber}.`;
-                txtTip.innerHTML = "";
+                txtTrys.textContent = `Você tem 0 tentativas!`;
+                txtResult.textContent = `Suas tentativas acabaram! O número secreto era ${secretNumber}.`;
+                txtTip.textContent = "";
                 gameStarted = false;
             } else {
                 if (number > secretNumber) {
                     input.value = "";
-                    txtTrys.innerHTML = `Você tem ${trys} tentativas!`;
-                    txtResult.innerHTML = `Você errou! Agora você tem ${trys} tentativas!`;
-                    txtTip.innerHTML = `O número secreto é menor que ${number}.`;
+                    txtTrys.textContent = `Você tem ${trys} tentativas!`;
+                    txtResult.textContent = `Você errou! Agora você tem ${trys} tentativas!`;
+                    txtTip.textContent = `O número secreto é menor que ${number}.`;
                 } else if (number < secretNumber) {
                     input.value = "";
-                    txtTrys.innerHTML = `Você tem ${trys} tentativas!`;
-                    txtResult.innerHTML = `Você errou! Agora você tem ${trys} tentativas!`;
-                    txtTip.innerHTML = `O número secreto é maior que ${number}.`;
+                    txtTrys.textContent = `Você tem ${trys} tentativas!`;
+                    txtResult.textContent = `Você errou! Agora você tem ${trys} tentativas!`;
+                    txtTip.textContent = `O número secreto é maior que ${number}.`;
                 }
             }
         }
